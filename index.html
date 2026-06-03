@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>gnest.tech — Under Construction</title>
+    <style>
+        :root{
+            --bg:#0f1724;
+            --card:#0b1220;
+            --accent:#f59e0b;
+            --muted:#9aa4b2;
+        }
+        html,body{height:100%;}
+        body{
+            margin:0;
+            font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+            background:
+                radial-gradient(1200px 600px at 10% 10%, rgba(245,158,11,0.06), transparent),
+                linear-gradient(180deg,#071129 0%, var(--bg) 100%);
+            color:#e6eef6;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            padding:24px;
+        }
+        .card{
+            width:min(920px,96%);
+            background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+            border:1px solid rgba(255,255,255,0.04);
+            border-radius:12px;
+            box-shadow: 0 8px 30px rgba(2,6,23,0.7);
+            padding:36px;
+            display:flex;
+            gap:28px;
+            align-items:center;
+            backdrop-filter: blur(6px);
+        }
+        .emoji{
+            width:140px;
+            height:140px;
+            flex:0 0 140px;
+            border-radius:12px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            background:linear-gradient(135deg, rgba(245,158,11,0.12), rgba(245,158,11,0.04));
+            border:1px solid rgba(245,158,11,0.12);
+            font-size:64px;
+            animation:bounce 2.4s ease-in-out infinite;
+        }
+        @keyframes bounce{
+            0%,100%{transform:translateY(0) rotate(0);}
+            50%{transform:translateY(-10px) rotate(-6deg);}
+        }
+        .content{flex:1; min-width:220px;}
+        h1{
+            margin:0 0 6px 0;
+            font-size:28px;
+            letter-spacing:-0.4px;
+        }
+        p.lead{
+            margin:0 0 18px 0;
+            color:var(--muted);
+            line-height:1.5;
+        }
+        .meta{
+            display:flex;
+            gap:12px;
+            align-items:center;
+            flex-wrap:wrap;
+        }
+        .pill{
+            display:inline-flex;
+            align-items:center;
+            gap:8px;
+            background:rgba(255,255,255,0.02);
+            padding:8px 12px;
+            border-radius:999px;
+            color:var(--muted);
+            font-size:13px;
+            border:1px solid rgba(255,255,255,0.02);
+        }
+        .accent{color:var(--accent); font-weight:600}
+        .progress{
+            margin-top:18px;
+            height:10px;
+            background:rgba(255,255,255,0.03);
+            border-radius:999px;
+            overflow:hidden;
+            border:1px solid rgba(255,255,255,0.02);
+        }
+        .bar{
+            height:100%;
+            width:36%;
+            background:linear-gradient(90deg, var(--accent), #ffb86b);
+            transition:width 600ms ease;
+            box-shadow:0 2px 10px rgba(245,158,11,0.18) inset;
+        }
+        .actions{
+            margin-top:18px;
+            display:flex;
+            gap:12px;
+            flex-wrap:wrap;
+        }
+        a.btn{
+            text-decoration:none;
+            color:#07203a;
+            background:var(--accent);
+            padding:10px 14px;
+            border-radius:8px;
+            font-weight:600;
+            display:inline-block;
+        }
+        a.ghost{
+            background:transparent;
+            color:var(--muted);
+            border:1px solid rgba(255,255,255,0.03);
+            padding:10px 14px;
+            border-radius:8px;
+            text-decoration:none;
+        }
+        footer{
+            margin-top:18px;
+            color:var(--muted);
+            font-size:13px;
+        }
+        @media (max-width:640px){
+            .card{flex-direction:column; align-items:stretch; padding:20px;}
+            .emoji{margin:0 auto;}
+        }
+    </style>
+</head>
+<body>
+    <main class="card" role="main" aria-labelledby="title">
+        <div class="emoji" aria-hidden="true">🚧</div>
+        <div class="content">
+            <h1 id="title">gnest.tech — Under Construction</h1>
+            <p class="lead">Thanks for your patience. The site is currently being improved. Check back soon for updates and new features.</p>
+
+            <div class="meta" role="status" aria-live="polite">
+                <span class="pill">Status: <strong class="accent" style="margin-left:6px;">In progress</strong></span>
+                <span class="pill">Estimated launch: <strong style="margin-left:6px;" id="eta">TBD</strong></span>
+                <span class="pill">Last updated: <strong style="margin-left:6px;" id="updated">—</strong></span>
+            </div>
+
+            <div class="progress" aria-hidden="true">
+                <div class="bar" id="bar"></div>
+            </div>
+
+            <div class="actions">
+                <a class="btn" href="mailto:hello@gnest.tech?subject=gnest.tech%20site%20inquiry">Contact Us</a>
+                <a class="ghost" href="https://twitter.com/" target="_blank" rel="noopener">Twitter</a>
+            </div>
+
+            <footer>
+                Want updates? Send an email or follow the project on social media.
+            </footer>
+        </div>
+    </main>
+
+    <script>
+        // Simple demo progress + timestamps (editable)
+        (function(){
+            // simulate progress value (0..100)
+            var progress = 36; // adjust as needed
+            var bar = document.getElementById('bar');
+            bar.style.width = progress + '%';
+
+            var updatedEl = document.getElementById('updated');
+            var etaEl = document.getElementById('eta');
+            var now = new Date();
+            updatedEl.textContent = now.toLocaleString();
+
+            // Example ETA: add 10 days
+            var eta = new Date(now.getTime() + 10*24*60*60*1000);
+            etaEl.textContent = eta.toLocaleDateString();
+
+            // optional: gently animate progress a little
+            setInterval(function(){
+                progress = Math.min(98, progress + Math.random()*2);
+                bar.style.width = Math.round(progress) + '%';
+            }, 3500);
+        })();
+    </script>
+</body>
+</html>
