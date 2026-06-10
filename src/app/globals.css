@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+/* ── Design tokens ────────────────────────────────────────── */
+@theme inline {
+  /* Palette */
+  --color-espresso: #2B1D16;
+  --color-cream: #FAF6EF;
+  --color-terracotta: #C96F3D;
+  --color-leaf: #3E7C59;
+  --color-ink: #1A1A1A;
+
+  /* Lighter/darker variants */
+  --color-terracotta-light: #D4885A;
+  --color-terracotta-dark: #A85A2E;
+  --color-leaf-light: #4E9B6F;
+  --color-leaf-dark: #2D5C42;
+  --color-cream-warm: #F5EDE0;
+  --color-espresso-light: #3D2E25;
+
+  /* Semantic */
+  --color-background: var(--color-cream);
+  --color-foreground: var(--color-ink);
+  --color-primary: var(--color-terracotta);
+  --color-success: var(--color-leaf);
+
+  /* Typography */
+  --font-display: var(--font-cabinet-grotesk), "Space Grotesk", system-ui, sans-serif;
+  --font-sans: var(--font-inter), "Inter", system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), "JetBrains Mono", ui-monospace, monospace;
+
+  /* Spacing / Radius */
+  --radius-card: 1rem;
+  --radius-button: 0.75rem;
+}
+
+/* ── Base styles ──────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Reduced motion ───────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Receipt divider ──────────────────────────────────────── */
+.receipt-edge {
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='12' viewBox='0 0 24 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 12 L12 0 L24 12' fill='%23FAF6EF'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: 24px 12px;
+}
+
+/* ── WhatsApp pulse ───────────────────────────────────────── */
+@keyframes whatsapp-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(37, 211, 102, 0);
+  }
+}
+
+.whatsapp-pulse {
+  animation: whatsapp-pulse 8s ease-in-out infinite;
+}
