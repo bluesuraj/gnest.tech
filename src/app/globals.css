@@ -3,19 +3,19 @@
 /* ── Design tokens ────────────────────────────────────────── */
 @theme inline {
   /* Palette */
-  --color-espresso: #2B1D16;
-  --color-cream: #FAF6EF;
-  --color-terracotta: #C96F3D;
-  --color-leaf: #3E7C59;
-  --color-ink: #1A1A1A;
+  --color-espresso: #2b1d16;
+  --color-cream: #faf6ef;
+  --color-terracotta: #c96f3d;
+  --color-leaf: #3e7c59;
+  --color-ink: #1a1a1a;
 
   /* Lighter/darker variants */
-  --color-terracotta-light: #D4885A;
-  --color-terracotta-dark: #A85A2E;
-  --color-leaf-light: #4E9B6F;
-  --color-leaf-dark: #2D5C42;
-  --color-cream-warm: #F5EDE0;
-  --color-espresso-light: #3D2E25;
+  --color-terracotta-light: #d4885a;
+  --color-terracotta-dark: #a85a2e;
+  --color-leaf-light: #4e9b6f;
+  --color-leaf-dark: #2d5c42;
+  --color-cream-warm: #f5ede0;
+  --color-espresso-light: #3d2e25;
 
   /* Semantic */
   --color-background: var(--color-cream);
@@ -24,13 +24,18 @@
   --color-success: var(--color-leaf);
 
   /* Typography */
-  --font-display: var(--font-cabinet-grotesk), "Space Grotesk", system-ui, sans-serif;
+  --font-display:
+    var(--font-cabinet-grotesk), "Space Grotesk", system-ui, sans-serif;
   --font-sans: var(--font-inter), "Inter", system-ui, sans-serif;
-  --font-mono: var(--font-jetbrains-mono), "JetBrains Mono", ui-monospace, monospace;
+  --font-mono:
+    var(--font-jetbrains-mono), "JetBrains Mono", ui-monospace, monospace;
 
   /* Spacing / Radius */
   --radius-card: 1rem;
   --radius-button: 0.75rem;
+
+  /* Layout */
+  --nav-height: 88px;
 }
 
 /* ── Base styles ──────────────────────────────────────────── */
@@ -67,7 +72,8 @@ body {
 
 /* ── WhatsApp pulse ───────────────────────────────────────── */
 @keyframes whatsapp-pulse {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
   }
   50% {

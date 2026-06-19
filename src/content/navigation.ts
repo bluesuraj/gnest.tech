@@ -4,22 +4,34 @@ export type NavItem = {
   label: string;
   href: string;
   badge?: string;
+  icon?: string; // lucide-react icon name, e.g. "Sparkles"
   children?: NavItem[];
 };
 
 export const mainNav: NavItem[] = [
-  { label: "Features", href: "/features" },
-  { label: "Pricing", href: "/pricing" },
+  { label: "Features", href: "/features", icon: "Sparkles" },
+  { label: "Pricing", href: "/pricing", icon: "Tag" },
   {
     label: "Business Types",
     href: "#",
+    icon: "Store",
     children: [
-      { label: "Cafe", href: "/cafe-pos" },
-      { label: "Restaurant", href: "/restaurant-pos", badge: "Soon" },
-      { label: "Guest House", href: "/guesthouse-pos", badge: "Soon" },
+      { label: "Cafe", href: "/cafe-pos", icon: "Coffee" },
+      {
+        label: "Restaurant",
+        href: "/restaurant-pos",
+        badge: "Soon",
+        icon: "UtensilsCrossed",
+      },
+      {
+        label: "Guest House",
+        href: "/guesthouse-pos",
+        badge: "Soon",
+        icon: "BedDouble",
+      },
     ],
   },
-  { label: "Help", href: "/help" },
+  { label: "Help", href: "/help", icon: "HelpCircle" },
 ];
 
 export const footerSections = [

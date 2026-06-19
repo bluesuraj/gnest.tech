@@ -21,7 +21,7 @@ const Hero3D = dynamic(() => import("@/components/three/Hero3D"), {
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden px-6 pb-16 pt-12 md:pb-24 md:pt-20">
+    <section className="relative overflow-hidden px-6 pb-16 pt-28 md:pb-24 md:pt-36">
       {/* Background gradient */}
       <div
         className="pointer-events-none absolute inset-0 -z-10"
@@ -37,9 +37,7 @@ export default function Hero() {
           <h1 className="font-display text-4xl font-bold leading-[1.1] tracking-tight text-espresso md:text-5xl lg:text-6xl">
             {hero.heading}
           </h1>
-          <p className="mt-6 text-lg leading-relaxed text-ink/70">
-            {hero.sub}
-          </p>
+          <p className="mt-6 text-lg leading-relaxed text-ink/70">{hero.sub}</p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <Link
               href="/signup"

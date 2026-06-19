@@ -6,6 +6,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
 import LenisProvider from "@/components/providers/LenisProvider";
+import SplashScreen from "@/components/SplashScreen";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -98,9 +99,12 @@ export default function RootLayout({
       className={`${inter.variable} ${jetbrainsMono.variable} ${cabinetGrotesk.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-cream text-ink">
+        <SplashScreen />
         <LenisProvider>
           <Navbar />
-          <main className="flex-1 pt-[72px]">{children}</main>
+          <main className="flex-1" style={{ paddingTop: "var(--nav-height)" }}>
+            {children}
+          </main>
           <Footer />
           <WhatsAppButton />
         </LenisProvider>

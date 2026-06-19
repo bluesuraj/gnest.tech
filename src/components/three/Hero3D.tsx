@@ -1,201 +1,157 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import {
-  Float,
-  PresentationControls,
-  Environment,
-  RoundedBox,
-  Text,
-} from "@react-three/drei";
-import * as THREE from "three";
+import { useState, useEffect, useRef, useCallback } from "react";
+import CarouselCard from "./CarouselCard";
 
-/* ── Receipt that slides out of the tablet ────────────────── */
-function Receipt() {
-  const ref = useRef<THREE.Group>(null);
-  const [progress, setProgress] = useState(0);
+const CARDS = [
+  { id: 0, label: "Dashboard" },
+  { id: 1, label: "Speed Checkout" },
+  { id: 2, label: "Smart Inventory" },
+  { id: 3, label: "Offline Mode" },
+  { id: 4, label: "Growth Tracker" },
+];
 
-  useEffect(() => {
-    // Animate receipt sliding out after a short delay
-    const timeout = setTimeout(() => {
-      setProgress(1);
-    }, 800);
-    return () => clearTimeout(timeout);
-  }, []);
+const TOTAL = CARDS.length;
 
-  useFrame((_, delta) => {
-    if (!ref.current) return;
-    const target = progress;
-    const current = ref.current.position.y;
-    ref.current.position.y = THREE.MathUtils.lerp(
-      current,
-      target * -1.6,
-      delta * 2
-    );
-    // Slight unfurl rotation
-    ref.current.rotation.x = THREE.MathUtils.lerp(
-      ref.current.rotation.x,
-      target * 0.05,
-      delta * 2
-    );
-  });
-
-  return (
-    <group ref={ref} position={[0, 0, 0.06]}>
-      {/* Receipt paper */}
-      <RoundedBox args={[1.1, 1.8, 0.02]} radius={0.02} position={[0, -0.1, 0]}>
-        <meshStandardMaterial color="#FAF6EF" roughness={0.9} />
-      </RoundedBox>
-
-      {/* Receipt content — mono text lines */}
-      <group position={[0, 0.5, 0.02]}>
-        <Text
-          fontSize={0.08}
-          color="#2B1D16"
-          font="/fonts/JetBrainsMono-Regular.woff"
-          anchorX="center"
-          anchorY="top"
-          maxWidth={0.9}
-        >
-          {"--- RECEIPT ---"}
-        </Text>
-        {[
-          "Cappuccino x2     ₹340",
-          "Croissant x1      ₹180",
-          "Flat White x1     ₹200",
-          "────────────────────",
-          "Subtotal          ₹720",
-          "GST (5%)           ₹36",
-          "────────────────────",
-          "TOTAL             ₹756",
-        ].map((line, i) => (
-          <Text
-            key={i}
-            fontSize={0.055}
-            color="#1A1A1A"
-            font="/fonts/JetBrainsMono-Regular.woff"
-            anchorX="center"
-            anchorY="top"
-            position={[0, -0.12 - i * 0.1, 0]}
-            maxWidth={0.9}
-          >
-            {line}
-          </Text>
-        ))}
-      </group>
-
-      {/* Torn bottom edge — zigzag geometry */}
-      <mesh position={[0, -1.0, 0.01]}>
-        <planeGeometry args={[1.1, 0.06]} />
-        <meshStandardMaterial
-          color="#FAF6EF"
-          roughness={1}
-          transparent
-          opacity={0.9}
-        />
-      </mesh>
-    </group>
-  );
-}
-
-/* ── Tablet device ────────────────────────────────────────── */
-function Tablet() {
-  const groupRef = useRef<THREE.Group>(null);
-
-  return (
-    <group ref={groupRef}>
-      {/* Tablet body */}
-      <RoundedBox args={[1.5, 2.2, 0.08]} radius={0.08}>
-        <meshStandardMaterial color="#1A1A1A" roughness={0.3} metalness={0.8} />
-      </RoundedBox>
-
-      {/* Screen */}
-      <RoundedBox
-        args={[1.3, 2.0, 0.01]}
-        radius={0.04}
-        position={[0, 0, 0.045]}
-      >
-        <meshStandardMaterial color="#2B1D16" roughness={0.2} metalness={0.1} />
-      </RoundedBox>
-
-      {/* POS UI elements on screen */}
-      <group position={[0, 0, 0.055]}>
-        {/* Header bar */}
-        <mesh position={[0, 0.85, 0]}>
-          <planeGeometry args={[1.2, 0.15]} />
-          <meshStandardMaterial color="#C96F3D" />
-        </mesh>
-
-        {/* Menu grid items */}
-        {[
-          [-0.35, 0.45],
-          [0.15, 0.45],
-          [-0.35, 0.05],
-          [0.15, 0.05],
-          [-0.35, -0.35],
-          [0.15, -0.35],
-        ].map(([x, y], i) => (
-          <mesh key={i} position={[x, y, 0]}>
-            <planeGeometry args={[0.4, 0.3]} />
-            <meshStandardMaterial
-              color={i === 0 ? "#C96F3D" : "#FAF6EF"}
-              roughness={0.8}
-            />
-          </mesh>
-        ))}
-
-        {/* Bottom total bar */}
-        <mesh position={[0, -0.8, 0]}>
-          <planeGeometry args={[1.2, 0.2]} />
-          <meshStandardMaterial color="#3E7C59" />
-        </mesh>
-      </group>
-
-      {/* Receipt slides out from bottom */}
-      <group position={[0, -1.1, 0]}>
-        <Receipt />
-      </group>
-    </group>
-  );
-}
-
-/* ── Main scene ───────────────────────────────────────────── */
-function Scene() {
-  return (
-    <>
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[5, 5, 5]} intensity={1} />
-      <Environment preset="city" />
-
-      <PresentationControls
-        global
-        speed={1.5}
-        damping={0.2}
-        snap={0.5}
-        polar={[-0.2, 0.2]}
-        azimuth={[-0.4, 0.4]}
-      >
-        <Float speed={2} rotationIntensity={0.3} floatIntensity={0.5}>
-          <group scale={1.1} rotation={[0.1, -0.2, 0]}>
-            <Tablet />
-          </group>
-        </Float>
-      </PresentationControls>
-    </>
-  );
+function getPos(cardIndex: number, front: number) {
+  return (((cardIndex - front) % TOTAL) + TOTAL) % TOTAL;
 }
 
 export default function Hero3D() {
+  const [current, setCurrent] = useState(0);
+  const [hovered, setHovered] = useState(false);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const touchStartX = useRef(0);
+
+  const next = useCallback(() => setCurrent((c) => (c + 1) % TOTAL), []);
+  const prev = useCallback(
+    () => setCurrent((c) => (c - 1 + TOTAL) % TOTAL),
+    [],
+  );
+
+  const resetTimer = useCallback(() => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => {
+      if (!hovered) next();
+    }, 3800);
+  }, [hovered, next]);
+
+  useEffect(() => {
+    timerRef.current = setInterval(() => {
+      if (!hovered) next();
+    }, 3800);
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, [hovered, next]);
+
+  const handleArrow = (dir: "next" | "prev") => {
+    dir === "next" ? next() : prev();
+    resetTimer();
+  };
+
+  const handleDot = (i: number) => {
+    setCurrent(i);
+    resetTimer();
+  };
+
+  const handleCardClick = (i: number, pos: number) => {
+    if (pos !== 0) {
+      setCurrent(i);
+      resetTimer();
+    }
+  };
+
   return (
-    <div className="h-[400px] w-full md:h-[480px]">
-      <Canvas
-        camera={{ position: [0, 0, 4.5], fov: 45 }}
-        gl={{ antialias: true, alpha: true }}
-        style={{ background: "transparent" }}
+    <div className="flex w-full flex-col items-center">
+      {/* Scene */}
+      <div
+        className="relative w-full max-w-[320px]"
+        style={{ perspective: "1100px" }}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        onTouchStart={(e) => {
+          touchStartX.current = e.touches[0].clientX;
+        }}
+        onTouchEnd={(e) => {
+          const dx = e.changedTouches[0].clientX - touchStartX.current;
+          if (Math.abs(dx) > 40) {
+            dx < 0 ? next() : prev();
+            resetTimer();
+          }
+        }}
       >
-        <Scene />
-      </Canvas>
+        {/* Stage */}
+        <div
+          className="relative h-[460px]"
+          style={{ transformStyle: "preserve-3d" }}
+        >
+          {CARDS.map((card, i) => {
+            const pos = getPos(i, current);
+            return (
+              <CarouselCard
+                key={card.id}
+                cardIndex={i}
+                pos={pos}
+                label={card.label}
+                onClick={() => handleCardClick(i, pos)}
+              />
+            );
+          })}
+        </div>
+
+        {/* Arrows */}
+        <button
+          onClick={() => handleArrow("prev")}
+          aria-label="Previous"
+          className="carousel-arrow absolute left-[-14px] top-1/2 z-20 flex h-[34px] w-[34px] -translate-y-1/2 items-center justify-center rounded-full border border-espresso/20 bg-white text-espresso/60 transition-colors hover:border-espresso/40 hover:text-espresso"
+        >
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+          >
+            <polyline points="15,18 9,12 15,6" />
+          </svg>
+        </button>
+        <button
+          onClick={() => handleArrow("next")}
+          aria-label="Next"
+          className="carousel-arrow absolute right-[-14px] top-1/2 z-20 flex h-[34px] w-[34px] -translate-y-1/2 items-center justify-center rounded-full border border-espresso/20 bg-white text-espresso/60 transition-colors hover:border-espresso/40 hover:text-espresso"
+        >
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+          >
+            <polyline points="9,18 15,12 9,6" />
+          </svg>
+        </button>
+      </div>
+
+      {/* Dots */}
+      <div className="mt-5 flex items-center gap-1.5">
+        {CARDS.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => handleDot(i)}
+            aria-label={`Go to card ${i + 1}`}
+            className={`h-1.5 rounded-full border-none transition-all duration-300 ${
+              i === current ? "w-5 bg-terracotta" : "w-1.5 bg-espresso/20"
+            }`}
+          />
+        ))}
+      </div>
+
+      <p className="mt-2.5 text-center text-[11px] text-espresso/30">
+        Swipe or use arrows to explore
+      </p>
     </div>
   );
 }
