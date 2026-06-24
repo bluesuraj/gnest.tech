@@ -1,5 +1,4 @@
 RewriteEngine On
-RewriteBase /gnest.tech/
 
 # Serve existing files/directories directly
 RewriteCond %{REQUEST_FILENAME} -f [OR]
