@@ -13,6 +13,9 @@ postcss.config.mjs
 package.json
 package-lock.json
 
+# Apache (local dev only — production uses nginx.template.conf)
+.htaccess
+
 # misc
 .DS_Store
 *.pem
