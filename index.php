@@ -1,11 +1,17 @@
 <?php
-// Support both mod_rewrite (?route=) and FallbackResource (REQUEST_URI)
+require_once __DIR__ . '/config/brand.php';
+
+// Support both mod_rewrite (?route=) and FallbackResource/Nginx (REQUEST_URI)
 if (isset($_GET['route'])) {
     $route = trim($_GET['route'], '/');
 } else {
     $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+    // Strip BASE_PATH prefix (e.g. /gnest.tech on localhost)
+    $base = rtrim(BASE_PATH, '/');
+    if ($base !== '' && strpos($uri, $base) === 0) {
+        $uri = substr($uri, strlen($base));
+    }
     $route = trim($uri, '/');
-    // Strip index.php prefix if present
     $route = preg_replace('#^index\.php/?#', '', $route);
 }
 
