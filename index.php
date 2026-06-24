@@ -1,5 +1,13 @@
 <?php
-$route = isset($_GET['route']) ? trim($_GET['route'], '/') : '';
+// Support both mod_rewrite (?route=) and FallbackResource (REQUEST_URI)
+if (isset($_GET['route'])) {
+    $route = trim($_GET['route'], '/');
+} else {
+    $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+    $route = trim($uri, '/');
+    // Strip index.php prefix if present
+    $route = preg_replace('#^index\.php/?#', '', $route);
+}
 
 $routes = [
     ''                => 'pages/home.php',
