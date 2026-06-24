@@ -1,0 +1,150 @@
+/* ── Navbar ────────────────────────────────────────────── */
+.navbar {
+  transition: background-color 0.3s, backdrop-filter 0.3s, box-shadow 0.3s;
+}
+.navbar-scrolled {
+  background: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  border-bottom: 2px solid #bbae9c;
+}
+.navbar-compact {
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+}
+.navbar-compact .nav-inner {
+  padding: 0.5rem 1rem !important;
+}
+
+/* Nav Chip hover circle */
+.nav-chip {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-card);
+  cursor: pointer;
+}
+.nav-chip::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-terracotta);
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 0;
+}
+.nav-chip:hover::before,
+.nav-chip:focus::before {
+  width: 90px;
+  height: 90px;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+.nav-chip .nav-chip-icon,
+.nav-chip .nav-chip-label {
+  position: relative;
+  z-index: 1;
+  transition: color 0.25s, transform 0.25s;
+}
+.nav-chip:hover .nav-chip-icon,
+.nav-chip:focus .nav-chip-icon {
+  color: #fff;
+  transform: translateY(-2px);
+}
+.nav-chip:hover .nav-chip-label,
+.nav-chip:focus .nav-chip-label {
+  color: #fff;
+}
+.nav-chip:hover .nav-chevron,
+.nav-chip:focus .nav-chevron {
+  color: #fff;
+  transform: rotate(180deg);
+}
+.nav-chevron {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.2s, color 0.25s;
+}
+
+/* Dropdown menu */
+.nav-dropdown {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.2s;
+}
+.nav-parent:hover .nav-dropdown {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Mobile menu */
+.mobile-menu {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+.mobile-menu.mobile-menu-open {
+  max-height: 500px;
+  opacity: 1;
+}
+
+/* ── Accordion ─────────────────────────────────────────── */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+.accordion-icon {
+  transition: transform 0.2s;
+}
+.accordion-item-open .accordion-icon {
+  transform: rotate(45deg);
+}
+
+/* ── Tilt Card ─────────────────────────────────────────── */
+.tilt-card {
+  transition: transform 0.15s ease-out;
+  transform-style: preserve-3d;
+}
+
+/* ── Pricing Toggle ────────────────────────────────────── */
+.pricing-toggle-knob {
+  transition: transform 0.2s;
+}
+.pricing-annual .pricing-toggle-knob {
+  transform: translateX(100%);
+}
+
+/* ── Timeline scroll ───────────────────────────────────── */
+.timeline-scroll {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.timeline-scroll::-webkit-scrollbar {
+  display: none;
+}
+.timeline-card {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+/* ── Feature sticky nav ────────────────────────────────── */
+.feature-nav-item {
+  transition: color 0.2s, border-color 0.2s;
+}
+.feature-nav-item.active {
+  color: var(--color-terracotta);
+  border-left-color: var(--color-terracotta);
+}

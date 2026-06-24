@@ -1,0 +1,87 @@
+/* ── Fade Up ───────────────────────────────────────────── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Stagger Grid ──────────────────────────────────────── */
+.stagger-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+.stagger-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Marquee ───────────────────────────────────────────── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee var(--marquee-speed, 30s) linear infinite;
+}
+
+.marquee-container:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-reverse .marquee-track {
+  animation-direction: reverse;
+}
+
+/* ── Splash Screen ─────────────────────────────────────── */
+@keyframes logoEntrance {
+  0% {
+    transform: scale(0.2) translateY(8px);
+    opacity: 0;
+    filter: blur(12px);
+  }
+  60% {
+    opacity: 1;
+    filter: blur(0px);
+  }
+  75% {
+    transform: scale(1.06) translateY(-2px);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+@keyframes ringPulse {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+/* ── CTA Drift ─────────────────────────────────────────── */
+@keyframes drift {
+  from { background-position: 0 0; }
+  to { background-position: 0 100px; }
+}
+
+/* ── Carousel Card ─────────────────────────────────────── */
+.carousel-card {
+  transition: transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              opacity 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              filter 0.65s;
+  will-change: transform, opacity;
+}
