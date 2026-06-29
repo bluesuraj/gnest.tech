@@ -26,8 +26,10 @@ $routes = [
     'blog'            => 'pages/blog.php',
     'restaurant-pos'  => 'pages/restaurant-pos.php',
     'guesthouse-pos'  => 'pages/guesthouse-pos.php',
+    'contact'         => 'pages/contact.php',
     'privacy'         => 'pages/privacy.php',
     'terms'           => 'pages/terms.php',
+    'api/submit-form' => 'api/submit-form.php',
 ];
 
 if (array_key_exists($route, $routes)) {

@@ -3,32 +3,32 @@ require_once __DIR__ . '/brand.php';
 
 $pageMeta = [
     'home' => [
-        'title' => BRAND . ' — Free POS for Cafes',
+        'title' => BRAND . ' — Free Cafe POS & Billing Software',
         'description' => 'Turn any phone or tablet into a full point of sale. Works offline, GST-ready, set up in minutes — no new hardware to buy.',
     ],
     'features' => [
-        'title' => 'Features | ' . BRAND,
-        'description' => 'Everything a cafe needs. Nothing it doesn\'t. Explore all ' . BRAND . ' features.',
+        'title' => 'Cafe POS Features — Billing, Inventory, GST & More | ' . BRAND,
+        'description' => 'Everything a cafe needs. Billing, GST invoicing, inventory, reports, staff management and more — all in one free POS.',
     ],
     'pricing' => [
-        'title' => 'Pricing | ' . BRAND,
-        'description' => 'One flat price. Every feature. No per-bill cuts. See ' . BRAND . ' pricing plans.',
+        'title' => 'Pricing Plans — Free & Pro Cafe POS Software | ' . BRAND,
+        'description' => 'One flat price. Every feature. No per-bill cuts. See ' . BRAND . ' pricing plans — free plan included.',
     ],
     'cafe-pos' => [
-        'title' => 'Cafe POS | ' . BRAND,
-        'description' => 'The POS made for cafes. Counter billing, KOT, UPI, GST — works on the phone in your pocket.',
+        'title' => 'Cafe POS Software — Free Billing for Cafes | ' . BRAND,
+        'description' => 'The POS made for cafes. Counter billing, KOT, UPI, GST — works on any Android phone. Free to start.',
     ],
     'about' => [
-        'title' => 'About | ' . BRAND,
-        'description' => 'Built for the chai-and-croissant economy. Learn about ' . BRAND . '\'s mission.',
+        'title' => 'About Us — Free POS Built for Cafes | ' . BRAND,
+        'description' => 'Built for the cafe economy. Learn about ' . BRAND . '\'s mission and team.',
     ],
     'hardware' => [
-        'title' => 'Hardware | ' . BRAND,
-        'description' => 'Bring the device you already own. No proprietary tablets. Your phone is the POS.',
+        'title' => 'POS Hardware — Use Your Own Android Phone | ' . BRAND,
+        'description' => 'Bring the device you already own. ' . BRAND . ' works on any Android phone — no proprietary hardware needed.',
     ],
     'help' => [
-        'title' => 'Help Center | ' . BRAND,
-        'description' => 'Get help with ' . BRAND . '. Browse guides or message us on WhatsApp.',
+        'title' => 'Help Center — Setup Guides & POS Support | ' . BRAND,
+        'description' => 'Get help with ' . BRAND . '. Browse setup guides, billing help, GST guides, or message us on WhatsApp.',
     ],
     'blog' => [
         'title' => 'Blog | ' . BRAND,
@@ -39,12 +39,16 @@ $pageMeta = [
         'description' => 'Read the latest from ' . BRAND . '.',
     ],
     'restaurant-pos' => [
-        'title' => 'Restaurant POS | ' . BRAND,
-        'description' => 'Restaurant POS with table management, KDS, and split bills.',
+        'title' => 'Restaurant POS Software — Coming Soon | ' . BRAND,
+        'description' => 'Restaurant POS with table management, KDS, and split bills. Coming soon.',
     ],
     'guesthouse-pos' => [
-        'title' => 'Guest House POS | ' . BRAND,
-        'description' => 'Guest house billing with room-folio, check-in/out, and housekeeping.',
+        'title' => 'Guest House Billing & POS Software — Coming Soon | ' . BRAND,
+        'description' => 'Guest house billing with room folios, check-in/out, and housekeeping. Coming soon.',
+    ],
+    'contact' => [
+        'title' => 'Contact Us — Reach Our POS Support Team | ' . BRAND,
+        'description' => 'Get in touch with ' . BRAND . '. Contact us for demos, support, partnerships, or any questions about our cafe POS software.',
     ],
     'privacy' => [
         'title' => 'Privacy Policy | ' . BRAND,

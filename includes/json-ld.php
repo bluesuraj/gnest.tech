@@ -29,7 +29,7 @@ function render_software_schema() {
     'offers' => [
       '@type' => 'Offer',
       'price' => '0',
-      'priceCurrency' => 'INR',
+      'priceCurrency' => 'USD',
     ],
   ];
   echo '<script type="application/ld+json">' . json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>';

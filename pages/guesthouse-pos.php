@@ -48,8 +48,9 @@ $page = $guesthousePage;
         <h2 class="font-display text-3xl font-bold tracking-tight text-espresso sm:text-4xl">Join the waitlist</h2>
         <p class="mt-4 text-sm text-espresso/60">Be the first to know when <?= BRAND ?> for guesthouses launches.</p>
       </div>
-      <form action="/api/waitlist" method="POST" class="fade-up mt-8 space-y-4" data-delay="0.1">
-        <input type="hidden" name="type" value="guesthouse">
+      <form action="<?= url('/api/submit-form') ?>" method="POST" data-ajax-form class="fade-up mt-8 space-y-4" data-delay="0.1">
+        <input type="hidden" name="form_type" value="waitlist">
+        <input type="hidden" name="product" value="guesthouse">
         <div>
           <label for="business-name" class="mb-1 block text-sm font-medium text-espresso">Business name</label>
           <input type="text" id="business-name" name="business_name" required class="w-full rounded-button border border-espresso/20 bg-white px-4 py-3 text-sm text-espresso placeholder-espresso/30 outline-none transition-colors focus:border-terracotta" placeholder="Your guesthouse name">
@@ -64,9 +65,9 @@ $page = $guesthousePage;
         </div>
         <div>
           <label for="phone" class="mb-1 block text-sm font-medium text-espresso">Phone</label>
-          <input type="tel" id="phone" name="phone" class="w-full rounded-button border border-espresso/20 bg-white px-4 py-3 text-sm text-espresso placeholder-espresso/30 outline-none transition-colors focus:border-terracotta" placeholder="+91 98765 43210">
+          <input type="tel" id="phone" name="phone" class="w-full rounded-button border border-espresso/20 bg-white px-4 py-3 text-sm text-espresso placeholder-espresso/30 outline-none transition-colors focus:border-terracotta" placeholder="+1 234 567 8900">
         </div>
-        <button type="submit" class="w-full rounded-button bg-terracotta px-8 py-3.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-terracotta-dark">Join waitlist</button>
+        <button type="submit" class="min-h-[44px] w-full rounded-button bg-terracotta px-8 py-3.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-terracotta-dark">Join waitlist</button>
       </form>
     </div>
   </section>

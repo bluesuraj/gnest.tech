@@ -14,6 +14,7 @@ $mainNav = [
         ],
     ],
     ['label' => 'Help', 'href' => '/help', 'icon' => 'help-circle'],
+    ['label' => 'Contact', 'href' => '/contact', 'icon' => 'mail'],
 ];
 
 $footerSections = [
@@ -38,7 +39,7 @@ $footerSections = [
         'links' => [
             ['label' => 'Blog', 'href' => '/blog'],
             ['label' => 'Help Center', 'href' => '/help'],
-            ['label' => 'API Docs', 'href' => '#'],
+            ['label' => 'Contact Us', 'href' => '/contact'],
         ],
     ],
     [

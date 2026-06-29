@@ -40,7 +40,7 @@ $alwaysFree = [
 $pricingFaqs = [
     ['question' => 'Are there any contracts or lock-in periods?', 'answer' => 'No. All plans are month-to-month. Cancel anytime from your account settings. Annual plans are discounted but you can switch to monthly at renewal.'],
     ['question' => 'Do you charge per transaction or per bill?', 'answer' => 'Never. You pay a flat monthly fee regardless of how many bills you print. Zero per-transaction charges.'],
-    ['question' => 'What hardware do I need to buy?', 'answer' => 'None, if you have an Android phone or tablet. For receipt printing, a Bluetooth thermal printer (₹2,000–3,000) is optional but recommended. No proprietary hardware required.'],
+    ['question' => 'What hardware do I need to buy?', 'answer' => 'None, if you have an Android phone or tablet. For receipt printing, a Bluetooth thermal printer ($25–40) is optional but recommended. No proprietary hardware required.'],
     ['question' => 'Is GST charged on the subscription?', 'answer' => 'Yes, 18% GST is added to the subscription price as required by applicable tax law. The prices shown above are before GST. You\'ll receive a GST invoice from ' . BRAND . ' for your records.'],
     ['question' => 'Can I upgrade or downgrade anytime?', 'answer' => 'Yes. Upgrade instantly and the price difference is prorated. Downgrade takes effect at the next billing cycle — you keep Pro features until then.'],
 ];

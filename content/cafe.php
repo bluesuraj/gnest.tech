@@ -20,7 +20,7 @@ $morningTimeline = [
 ];
 
 $cafeFeatures = [
-    ['title' => 'Menu with modifiers', 'description' => 'Oat milk +₹40, extra shot +₹30 — modifiers that match how your barista actually takes orders.'],
+    ['title' => 'Menu with modifiers', 'description' => 'Oat milk, extra shot, sugar level — add custom modifiers with pricing that match how your barista actually takes orders.'],
     ['title' => 'Table & token numbers', 'description' => 'Assign tables for dine-in or token numbers for takeaway. Flexible for any cafe layout.'],
     ['title' => 'KOT printing', 'description' => 'Kitchen order tickets print automatically to your kitchen printer the moment a bill is placed.'],
     ['title' => 'UPI QR on receipt', 'description' => 'Every printed receipt includes a UPI QR code. Customers scan and pay — no separate app needed.'],
@@ -45,7 +45,7 @@ $cafeTestimonial = [
     'name' => 'Founding Cafe Partner',
     'role' => 'Owner',
     'cafe' => 'Cafe name',
-    'location' => 'Delhi NCR',
+    'location' => 'Founding Partner',
 ];
 
 $cafeFaqs = [

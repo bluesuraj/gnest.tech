@@ -98,7 +98,8 @@ require_once __DIR__ . '/../includes/navbar.php';
         <h2 class="font-display text-3xl font-bold tracking-tight text-espresso sm:text-4xl">Join the pilot program</h2>
         <p class="mt-4 text-sm text-espresso/60">Be among the first cafes to try <?= BRAND ?> free.</p>
       </div>
-      <form action="/api/pilot" method="POST" class="fade-up mt-8 space-y-4" data-delay="0.1">
+      <form action="<?= url('/api/submit-form') ?>" method="POST" data-ajax-form class="fade-up mt-8 space-y-4" data-delay="0.1">
+        <input type="hidden" name="form_type" value="pilot">
         <div>
           <label for="cafe-name" class="mb-1 block text-sm font-medium text-espresso">Cafe name</label>
           <input type="text" id="cafe-name" name="cafe_name" required class="w-full rounded-button border border-espresso/20 bg-white px-4 py-3 text-sm text-espresso placeholder-espresso/30 outline-none transition-colors focus:border-terracotta" placeholder="e.g. Blue Tokai">
@@ -108,14 +109,18 @@ require_once __DIR__ . '/../includes/navbar.php';
           <input type="text" id="owner-name" name="owner_name" required class="w-full rounded-button border border-espresso/20 bg-white px-4 py-3 text-sm text-espresso placeholder-espresso/30 outline-none transition-colors focus:border-terracotta" placeholder="Your full name">
         </div>
         <div>
+          <label for="email" class="mb-1 block text-sm font-medium text-espresso">Email</label>
+          <input type="email" id="email" name="email" required class="w-full rounded-button border border-espresso/20 bg-white px-4 py-3 text-sm text-espresso placeholder-espresso/30 outline-none transition-colors focus:border-terracotta" placeholder="you@example.com">
+        </div>
+        <div>
           <label for="phone" class="mb-1 block text-sm font-medium text-espresso">Phone</label>
-          <input type="tel" id="phone" name="phone" required class="w-full rounded-button border border-espresso/20 bg-white px-4 py-3 text-sm text-espresso placeholder-espresso/30 outline-none transition-colors focus:border-terracotta" placeholder="+91 98765 43210">
+          <input type="tel" id="phone" name="phone" required class="w-full rounded-button border border-espresso/20 bg-white px-4 py-3 text-sm text-espresso placeholder-espresso/30 outline-none transition-colors focus:border-terracotta" placeholder="+1 234 567 8900">
         </div>
         <div>
           <label for="city" class="mb-1 block text-sm font-medium text-espresso">City</label>
-          <input type="text" id="city" name="city" required class="w-full rounded-button border border-espresso/20 bg-white px-4 py-3 text-sm text-espresso placeholder-espresso/30 outline-none transition-colors focus:border-terracotta" placeholder="e.g. Bangalore">
+          <input type="text" id="city" name="city" required class="w-full rounded-button border border-espresso/20 bg-white px-4 py-3 text-sm text-espresso placeholder-espresso/30 outline-none transition-colors focus:border-terracotta" placeholder="Your city">
         </div>
-        <button type="submit" class="w-full rounded-button bg-terracotta px-8 py-3.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-terracotta-dark">Request early access</button>
+        <button type="submit" class="min-h-[44px] w-full rounded-button bg-terracotta px-8 py-3.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-terracotta-dark">Request early access</button>
       </form>
     </div>
   </section>

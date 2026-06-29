@@ -16,8 +16,8 @@ $socialProof = [
         ['label' => 'Avg. setup time', 'value' => 30, 'suffix' => ' min', 'prefix' => 'Under '],
     ],
     'neighbourhoods' => [
-        'Hauz Khas', 'Shahpur Jat', 'Gurgaon', 'Koramangala', 'Indiranagar',
-        'Bandra', 'Connaught Place', 'Saket', 'Defence Colony', 'Vasant Kunj',
+        'Downtown', 'Old Town', 'Market Street', 'University District', 'Arts Quarter',
+        'Harbour Side', 'Central Square', 'Station Road', 'Garden District', 'Lakeside',
     ],
 ];
 
@@ -120,21 +120,21 @@ $businessTypes = [
 $whySwitch = [
     ['heading' => 'No hardware lock-in', 'body' => 'Your phone is the POS. No proprietary tablets, no annual hardware leases. Bring the device you already own.'],
     ['heading' => 'Flat monthly price', 'body' => 'No per-feature surprises, no per-transaction cuts. One plan, every feature, predictable cost.'],
-    ['heading' => 'Real humans on WhatsApp', 'body' => 'Message us in Hindi or English. Get a reply in minutes, not a ticket number. Support that speaks your language.'],
+    ['heading' => 'Real humans on WhatsApp', 'body' => 'Message us anytime. Get a reply in minutes, not a ticket number. Support that speaks your language.'],
 ];
 
 $testimonials = [
-    ['quote' => 'We went from pen-and-paper to printing GST bills in one afternoon. The setup was shockingly simple.', 'name' => 'Pilot Cafe Owner', 'role' => 'Owner', 'cafe' => 'Cafe name', 'location' => 'Hauz Khas, Delhi'],
-    ['quote' => 'The offline mode saved us during a power cut on a Saturday. Bills kept printing like nothing happened.', 'name' => 'Pilot Cafe Owner', 'role' => 'Manager', 'cafe' => 'Cafe name', 'location' => 'Koramangala, Bangalore'],
-    ['quote' => 'I check yesterday\'s sales on my phone every morning before I even get to the shop. Game changer.', 'name' => 'Pilot Cafe Owner', 'role' => 'Owner', 'cafe' => 'Cafe name', 'location' => 'Bandra, Mumbai'],
-    ['quote' => 'No monthly surprises. No hidden fees. I know exactly what I\'m paying and what I\'m getting.', 'name' => 'Pilot Cafe Owner', 'role' => 'Owner', 'cafe' => 'Cafe name', 'location' => 'Shahpur Jat, Delhi'],
-    ['quote' => 'WhatsApp support in Hindi. That alone is worth switching for.', 'name' => 'Pilot Cafe Owner', 'role' => 'Owner', 'cafe' => 'Cafe name', 'location' => 'Gurgaon, Haryana'],
+    ['quote' => 'We went from pen-and-paper to printing GST bills in one afternoon. The setup was shockingly simple.', 'name' => 'Pilot Cafe Owner', 'role' => 'Owner', 'cafe' => 'Cafe name', 'location' => 'Downtown'],
+    ['quote' => 'The offline mode saved us during a power cut on a Saturday. Bills kept printing like nothing happened.', 'name' => 'Pilot Cafe Owner', 'role' => 'Manager', 'cafe' => 'Cafe name', 'location' => 'Arts Quarter'],
+    ['quote' => 'I check yesterday\'s sales on my phone every morning before I even get to the shop. Game changer.', 'name' => 'Pilot Cafe Owner', 'role' => 'Owner', 'cafe' => 'Cafe name', 'location' => 'Market Street'],
+    ['quote' => 'No monthly surprises. No hidden fees. I know exactly what I\'m paying and what I\'m getting.', 'name' => 'Pilot Cafe Owner', 'role' => 'Owner', 'cafe' => 'Cafe name', 'location' => 'Old Town'],
+    ['quote' => 'WhatsApp support that actually replies. That alone is worth switching for.', 'name' => 'Pilot Cafe Owner', 'role' => 'Owner', 'cafe' => 'Cafe name', 'location' => 'Central Square'],
 ];
 
 $faqs = [
     ['question' => 'Is it really free?', 'answer' => 'Yes. The free plan includes single-device billing, GST invoices, and basic reporting — forever. No credit card required, no trial period. Upgrade to Pro only when you need inventory tracking, staff management, or priority support.'],
     ['question' => 'Does it work offline?', 'answer' => 'Absolutely. Billing, KOT printing, and payment recording all work without internet. Data syncs automatically when you reconnect. Your cafe never stops billing.'],
-    ['question' => 'Is it GST-compliant?', 'answer' => 'Every invoice ' . BRAND . ' generates includes your GSTIN, HSN/SAC codes, and tax breakdowns per CBIC guidelines. Export-ready for your chartered accountant.'],
+    ['question' => 'Is it GST-compliant?', 'answer' => 'Every invoice ' . BRAND . ' generates includes your GSTIN, HSN/SAC codes, and tax breakdowns per applicable guidelines. Export-ready for your accountant.'],
     ['question' => 'What hardware do I need?', 'answer' => 'None. Any Android or iOS phone or tablet works. Pair a Bluetooth thermal printer (58mm or 80mm) for receipts — most affordable Bluetooth printers work out of the box. No proprietary hardware required.'],
     ['question' => 'How fast can I start billing?', 'answer' => 'Most cafes are billing within 30 minutes. Download the app, add your menu items, connect a printer, and you\'re live. We\'ll walk you through setup on WhatsApp if you need help.'],
 ];

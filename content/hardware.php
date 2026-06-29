@@ -15,11 +15,11 @@ $devices = [
 
 $starterSetup = [
     'heading' => 'Recommended starter setup',
-    'sub' => 'Everything you need to start billing, under ₹5,000.',
+    'sub' => 'Everything you need to start billing, under $60.',
     'items' => [
         ['name' => 'Your phone', 'price' => 'Already own'],
-        ['name' => '58mm Bluetooth thermal printer', 'price' => '₹2,000–3,000'],
-        ['name' => 'Printer paper rolls (pack of 10)', 'price' => '₹200–300'],
+        ['name' => '58mm Bluetooth thermal printer', 'price' => '$25–40'],
+        ['name' => 'Printer paper rolls (pack of 10)', 'price' => '$3–5'],
     ],
-    'total' => 'Under ₹3,500 total',
+    'total' => 'Under $45 total',
 ];

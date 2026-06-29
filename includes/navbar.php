@@ -27,7 +27,7 @@ require_once __DIR__ . '/../content/navigation.php';
             <div class="nav-dropdown absolute left-1/2 top-full z-50 min-w-[200px] -translate-x-1/2 pt-2">
               <div class="rounded-card overflow-hidden border border-cream-warm bg-white shadow-lg">
                 <?php foreach ($item['children'] as $child): ?>
-                  <a href="<?= url($child['href']) ?>" class="flex items-center gap-3 px-4 py-3 text-sm text-ink transition-colors hover:bg-cream">
+                  <a href="<?= url($child['href']) ?>" class="flex min-h-[44px] items-center gap-3 px-4 py-3 text-sm text-ink transition-colors hover:bg-cream">
                     <span class="h-4 w-4 text-terracotta"><?= get_nav_icon($child['icon']) ?></span>
                     <span class="flex-1"><?= $child['label'] ?></span>
                     <?php if (isset($child['badge'])): ?>
@@ -52,7 +52,7 @@ require_once __DIR__ . '/../content/navigation.php';
     </nav>
 
     <!-- Mobile hamburger -->
-    <button id="mobile-menu-btn" class="flex h-10 w-10 items-center justify-center rounded-lg text-ink transition-colors hover:bg-cream lg:hidden" aria-label="Toggle menu" aria-expanded="false">
+    <button id="mobile-menu-btn" class="flex h-11 w-11 items-center justify-center rounded-lg text-ink transition-colors hover:bg-cream lg:hidden" aria-label="Toggle menu" aria-expanded="false">
       <svg class="icon-open h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
         <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
       </svg>
@@ -74,7 +74,7 @@ require_once __DIR__ . '/../content/navigation.php';
             </span>
             <div class="mt-1 flex flex-col pl-3">
               <?php foreach ($item['children'] as $child): ?>
-                <a href="<?= url($child['href']) ?>" class="flex items-center gap-2 py-2 text-sm text-ink transition-colors hover:text-terracotta">
+                <a href="<?= url($child['href']) ?>" class="flex min-h-[44px] items-center gap-2 py-2 text-sm text-ink transition-colors hover:text-terracotta">
                   <span class="h-4 w-4"><?= get_nav_icon($child['icon']) ?></span>
                   <?= $child['label'] ?>
                   <?php if (isset($child['badge'])): ?>
@@ -85,7 +85,7 @@ require_once __DIR__ . '/../content/navigation.php';
             </div>
           </div>
         <?php else: ?>
-          <a href="<?= url($item['href']) ?>" class="flex items-center gap-2 py-2 text-sm font-medium text-ink transition-colors hover:text-terracotta">
+          <a href="<?= url($item['href']) ?>" class="flex min-h-[44px] items-center gap-2 py-2 text-sm font-medium text-ink transition-colors hover:text-terracotta">
             <span class="h-4 w-4"><?= get_nav_icon($item['icon']) ?></span>
             <?= $item['label'] ?>
           </a>
@@ -106,6 +106,7 @@ function get_nav_icon($name) {
     'utensils' => '<svg class="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8.25v-1.5m0 1.5c-1.355 0-2.697.056-4.024.166C6.845 8.51 6 9.473 6 10.608v2.513m6-4.87c1.355 0 2.697.055 4.024.165C17.155 8.51 18 9.473 18 10.608v2.513m-3-4.87v-1.5m-6 1.5v-1.5m12 9.75l-1.5.75a3.354 3.354 0 01-3 0 3.354 3.354 0 00-3 0 3.354 3.354 0 01-3 0 3.354 3.354 0 00-3 0 3.354 3.354 0 01-3 0L3 16.5m15-3.38a48.474 48.474 0 00-6-.37c-2.032 0-4.034.126-6 .37m12 0c.39.049.777.102 1.163.16 1.07.16 1.837 1.094 1.837 2.175v5.17c0 .62-.504 1.124-1.125 1.124H4.125A1.125 1.125 0 013 20.625v-5.17c0-1.08.768-2.014 1.837-2.174A47.78 47.78 0 016 13.12M12.265 3.11a.375.375 0 11-.53 0L12 2.845l.265.265z"/></svg>',
     'bed' => '<svg class="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>',
     'help-circle' => '<svg class="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z"/></svg>',
+    'mail' => '<svg class="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>',
   ];
   return isset($icons[$name]) ? $icons[$name] : '';
 }
